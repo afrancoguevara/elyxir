@@ -81,15 +81,15 @@ function security_headers() {
   $csp = apply_filters(
   'elyxir/security/csp',
   "default-src 'self'; " .
-  // --- AÑADIDOS PARA TU CASO ---
-  "style-src 'self' 'unsafe-inline' https: data:; " .   // permite CSS inline y de CDNs
-  "script-src 'self' 'unsafe-inline' https: data: blob:; " . // permite JS inline (y blob, por si hay builders)
-  // --------------------------------
+  "style-src 'self' 'unsafe-inline' https: data:; " .       // <- añade reglas para estilos
+  "script-src 'self' 'unsafe-inline' https: data: blob:; " . // <- añade reglas para scripts
   "img-src 'self' data: https:; " .
   "font-src 'self' data: https:; " .
   "media-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'; " .
   "connect-src 'self' https:;"
 );
+header('Content-Security-Policy: ' . $csp);
+
 
   if (is_string($csp) && $csp !== '') { header('Content-Security-Policy: ' . $csp); }
 }
