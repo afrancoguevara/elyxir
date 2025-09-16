@@ -1,0 +1,5 @@
+Elyxir Theme - Quick Edits (2025-09-15)
+- header.php: switched wp_nav_menu theme_location => 'primary'
+- functions.php: load inc/security.hardened.php (instead of inc/security.php)
+- style.css: version bumped to 3.0.1 to bust caches
+- inc/security.hardened.php: added (security headers, REST users lock, author scan block, etc.)
