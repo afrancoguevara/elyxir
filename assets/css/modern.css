@@ -233,17 +233,17 @@
 
   .menu { list-style: none; }
   .menu > li { position: relative; }
-  .menu a { display: block; padding: .6rem .8rem; text-decoration: none; color: inherit; border-radius: .6rem; }
+  .menu a { display: block; padding: .6rem .8rem; text-decoration: none; color: inherit;  }
   .menu a:hover { background: var(--c-subtle); }
 
   /* Dropdowns (hover + keyboard) */
   .menu li > .sub-menu {
     position: absolute; inset-inline-start: 0; top: 100%; min-inline-size: 220px;
-    background: var(--c-bg); border: 1px solid var(--c-border); border-radius: var(--radius);
+    background: var(--c-bg); border: 1px solid var(--c-border); 
     padding: .4rem; display: none; box-shadow: var(--shadow-2); z-index: 50;
   }
   .menu li:focus-within > .sub-menu, .menu li:hover > .sub-menu { display: block; }
-  .sub-menu a { border-radius: .5rem; }
+  
 
   /* Card */
   .card { background: var(--c-bg); border: 1px solid var(--c-border); border-radius: var(--radius); box-shadow: var(--shadow-1); overflow: hidden; }
