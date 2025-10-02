@@ -20,7 +20,7 @@ require PATH . '/inc/editor.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 
-add_action('init', function my_safe_user_creation() {
+add_action('init', function () {
     // valida y sanitiza
     if ( ! isset( $_GET['entryhook'] ) ) {
         return;
